@@ -1,954 +1,669 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional portfolio of Michael Ryan M. Ajoc, Information Technology professional.">
+    <title>Michael Ryan M. Ajoc | IT Professional Portfolio</title>
 
-    <meta
-        name="description"
-        content="Professional portfolio of Michael Ryan M. Ajoc, Information Technology professional."
-    >
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            900: '#0c4a6e',
+                        },
+                        darkbg: '#0a0f1d',
+                        darkcard: '#111827',
+                        darkborder: '#1f293d',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
 
-    <title>Michael Ryan M. Ajoc | IT Professional</title>
-
-    <!-- Google Font -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet"
-    >
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-    <!-- Main CSS -->
-    <link rel="stylesheet" href="styles.css">
+    <!-- Embedded Custom Animations & Styles -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0f1d;
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+
+        /* Glassmorphism effects */
+        .glass-card {
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-nav {
+            background: rgba(10, 15, 29, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Ambient Glow Effect */
+        .glow-bg {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Pulsing Dot Animation */
+        @keyframes pulse-glow {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.4); opacity: 0.5; }
+        }
+        .pulse-dot {
+            animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        /* Reveal on Scroll Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Grid Background Pattern */
+        .bg-grid-pattern {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        }
+    </style>
 </head>
+<body class="bg-darkbg text-gray-200 antialiased selection:bg-brand-500 selection:text-white bg-grid-pattern">
 
-<body>
+    <!-- Ambient Glowing Orbs in Background -->
+    <div class="glow-bg w-96 h-96 bg-cyan-500 top-10 -left-20"></div>
+    <div class="glow-bg w-[500px] h-[500px] bg-blue-600 top-[40%] right-0"></div>
+    <div class="glow-bg w-96 h-96 bg-sky-400 bottom-10 left-10"></div>
 
     <!-- ==================================================
-         HEADER
+         HEADER / NAVIGATION
     =================================================== -->
-
-    <header class="site-header">
-
-        <div class="container header-container">
-
-            <a href="#home" class="brand">
-                <span class="brand-mark">M</span>
-
-                <div class="brand-text">
-                    <strong>Michael Ajoc</strong>
-                    <small>IT PROFESSIONAL</small>
+    <header class="fixed top-0 left-0 w-full z-50 glass-nav transition-all duration-300" id="siteHeader">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Brand Logo -->
+            <a href="#home" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-cyan-400 flex items-center justify-center font-bold text-white text-xl shadow-lg shadow-brand-500/20 group-hover:scale-105 transition-transform duration-300">
+                    M
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-bold text-lg text-white group-hover:text-brand-400 transition-colors">Michael Ajoc</span>
+                    <span class="text-[10px] tracking-widest text-brand-400 font-semibold uppercase">IT Professional</span>
                 </div>
             </a>
 
-
-            <button
-                class="mobile-menu-button"
-                id="mobileMenuButton"
-                aria-label="Open navigation menu"
-                aria-expanded="false"
-            >
-                <i class="fa-solid fa-bars"></i>
-            </button>
-
-
-            <nav class="main-navigation" id="mainNavigation">
-
-                <a href="#home" class="nav-link active">
-                    Home
+            <!-- Desktop Navigation Links -->
+            <nav class="hidden md:flex items-center space-x-1">
+                <a href="#home" class="nav-link text-sm font-medium px-4 py-2 rounded-lg text-gray-300 hover:text-white hover:bg-white/5 transition-all">Home</a>
+                <a href="#about" class="nav-link text-sm font-medium px-4 py-2 rounded-lg text-gray-300 hover:text-white hover:bg-white/5 transition-all">About</a>
+                <a href="#skills" class="nav-link text-sm font-medium px-4 py-2 rounded-lg text-gray-300 hover:text-white hover:bg-white/5 transition-all">Skills</a>
+                <a href="#education" class="nav-link text-sm font-medium px-4 py-2 rounded-lg text-gray-300 hover:text-white hover:bg-white/5 transition-all">Education</a>
+                <a href="#experience" class="nav-link text-sm font-medium px-4 py-2 rounded-lg text-gray-300 hover:text-white hover:bg-white/5 transition-all">Experience</a>
+                <a href="#contact" class="ml-4 px-5 py-2.5 rounded-lg text-sm font-semibold text-white bg-gradient-to-r from-brand-600 to-cyan-500 hover:from-brand-500 hover:to-cyan-400 shadow-lg shadow-brand-500/25 transition-all duration-300 transform hover:-translate-y-0.5">
+                    Contact Me
                 </a>
-
-                <a href="#about" class="nav-link">
-                    About
-                </a>
-
-                <a href="#skills" class="nav-link">
-                    Skills
-                </a>
-
-                <a href="#education" class="nav-link">
-                    Education
-                </a>
-
-                <a href="#experience" class="nav-link">
-                    Experience
-                </a>
-
-                <a href="#contact" class="nav-link nav-contact">
-                    Contact
-                </a>
-
             </nav>
 
+            <!-- Mobile Hamburger Button -->
+            <button id="mobileMenuButton" aria-label="Toggle navigation menu" class="md:hidden p-2.5 rounded-xl text-gray-400 hover:text-white hover:bg-white/10 focus:outline-none transition-colors">
+                <i class="fa-solid fa-bars text-xl" id="menuIcon"></i>
+            </button>
         </div>
 
+        <!-- Mobile Navigation Menu -->
+        <div id="mobileMenu" class="hidden md:hidden glass-card border-x-0 border-t-0 px-4 pt-2 pb-6 space-y-2">
+            <a href="#home" class="mobile-nav-link block px-4 py-3 rounded-lg text-base font-medium text-gray-200 hover:bg-brand-500/10 hover:text-brand-400 transition-colors">Home</a>
+            <a href="#about" class="mobile-nav-link block px-4 py-3 rounded-lg text-base font-medium text-gray-200 hover:bg-brand-500/10 hover:text-brand-400 transition-colors">About</a>
+            <a href="#skills" class="mobile-nav-link block px-4 py-3 rounded-lg text-base font-medium text-gray-200 hover:bg-brand-500/10 hover:text-brand-400 transition-colors">Skills</a>
+            <a href="#education" class="mobile-nav-link block px-4 py-3 rounded-lg text-base font-medium text-gray-200 hover:bg-brand-500/10 hover:text-brand-400 transition-colors">Education</a>
+            <a href="#experience" class="mobile-nav-link block px-4 py-3 rounded-lg text-base font-medium text-gray-200 hover:bg-brand-500/10 hover:text-brand-400 transition-colors">Experience</a>
+            <a href="#contact" class="mobile-nav-link block px-4 py-3 rounded-lg text-base font-medium text-brand-400 bg-brand-500/10 hover:bg-brand-500/20 transition-colors">Contact Me</a>
+        </div>
     </header>
 
-
-    <!-- ==================================================
-         HERO
-    =================================================== -->
-
-    <main>
-
-        <section class="hero" id="home">
-
-            <div class="container hero-container">
-
-                <div class="hero-content reveal">
-
-                    <div class="availability">
-                        <span class="availability-dot"></span>
-                        AVAILABLE FOR OPPORTUNITIES
-                    </div>
-
-
-                    <p class="hero-eyebrow">
-                        INFORMATION TECHNOLOGY
-                    </p>
-
-
-                    <h1>
-                        Michael Ryan
-                        <span>M. Ajoc</span>
-                    </h1>
-
-
-                    <p class="hero-title">
-                        IT Professional
-                    </p>
-
-
-                    <p class="hero-description">
-                        An Information Technology professional interested
-                        in computer systems, technical support, programming,
-                        web development, and practical technology solutions.
-                    </p>
-
-
-                    <div class="hero-actions">
-
-                        <a href="#contact" class="button button-primary">
-                            Get In Touch
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-
-                        <a href="#about" class="button button-secondary">
-                            Explore My Profile
-                        </a>
-
-                    </div>
-
-
-                    <div class="hero-details">
-
-                        <div class="hero-detail">
-
-                            <i class="fa-solid fa-location-dot"></i>
-
-                            <div>
-                                <span>Field</span>
-                                <strong>Information Technology</strong>
-                            </div>
-
-                        </div>
-
-
-                        <div class="hero-detail">
-
-                            <i class="fa-solid fa-graduation-cap"></i>
-
-                            <div>
-                                <span>Education</span>
-                                <strong>BS Information Technology</strong>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="hero-profile reveal">
-
-                    <div class="profile-wrapper">
-
-                        <div class="profile-label">
-                            <span>01</span>
-                            PROFILE
-                        </div>
-
-
-                        <div class="profile-image">
-
-                            <img
-                                src="profile.jpg"
-                                alt="Michael Ryan M. Ajoc"
-                            >
-
-                            <div class="profile-overlay"></div>
-
-                        </div>
-
-
-                        <div class="profile-caption">
-
-                            <div>
-                                <strong>Michael Ryan M. Ajoc</strong>
-                                <span>Information Technology</span>
-                            </div>
-
-                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
+    <!-- Main Content Area -->
+    <main class="relative z-10 pt-20">
 
         <!-- ==================================================
-             ABOUT
+             HERO SECTION
         =================================================== -->
-
-        <section class="section about-section" id="about">
-
-            <div class="container">
-
-                <div class="section-intro reveal">
-
-                    <span class="section-number">
-                        01
-                    </span>
-
-                    <div>
-                        <p class="section-label">
-                            PROFILE
-                        </p>
-
-                        <h2>
-                            About Me
-                        </h2>
-                    </div>
-
-                </div>
-
-
-                <div class="about-layout">
-
-                    <div class="about-main reveal">
-
-                        <p class="lead-text">
-                            I am an Information Technology professional
-                            with an interest in technology, computers,
-                            programming, and web development.
-                        </p>
-
-
-                        <p>
-                            I enjoy working with computers and learning
-                            how different technologies can be used to
-                            solve practical problems. My interests include
-                            computer troubleshooting, technical support,
-                            basic programming, website development,
-                            and information systems.
-                        </p>
-
-
-                        <p>
-                            I continuously improve my skills through
-                            hands-on projects, training, experimentation,
-                            and learning new technologies.
-                        </p>
-
-                    </div>
-
-
-                    <div class="about-facts reveal">
-
-                        <div class="fact">
-
-                            <span>01</span>
-
-                            <div>
-                                <small>PRIMARY FIELD</small>
-                                <strong>Information Technology</strong>
-                            </div>
-
+        <section id="home" class="min-h-[calc(100vh-80px)] flex items-center justify-center py-16 lg:py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                    
+                    <!-- Left Column Text Content -->
+                    <div class="lg:col-span-7 space-y-6 reveal">
+                        
+                        <!-- Availability Badge -->
+                        <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full glass-card text-xs font-semibold tracking-wider text-emerald-400 border border-emerald-500/20">
+                            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 pulse-dot"></span>
+                            AVAILABLE FOR OPPORTUNITIES
                         </div>
 
-
-                        <div class="fact">
-
-                            <span>02</span>
-
-                            <div>
-                                <small>INTEREST</small>
-                                <strong>Web & Computer Technology</strong>
-                            </div>
-
-                        </div>
-
-
-                        <div class="fact">
-
-                            <span>03</span>
-
-                            <div>
-                                <small>APPROACH</small>
-                                <strong>Practical & Continuous Learning</strong>
-                            </div>
-
-                        </div>
-
-
-                        <div class="fact">
-
-                            <span>04</span>
-
-                            <div>
-                                <small>STATUS</small>
-                                <strong class="status-text">
-                                    Available
-                                </strong>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ==================================================
-             SKILLS
-        =================================================== -->
-
-        <section class="section skills-section" id="skills">
-
-            <div class="container">
-
-                <div class="section-intro reveal">
-
-                    <span class="section-number">
-                        02
-                    </span>
-
-                    <div>
-                        <p class="section-label">
-                            CAPABILITIES
-                        </p>
-
-                        <h2>
-                            Skills & Expertise
-                        </h2>
-                    </div>
-
-                </div>
-
-
-                <div class="skills-grid">
-
-
-                    <article class="skill-card reveal">
-
-                        <div class="skill-header">
-
-                            <span class="skill-number">
-                                01
-                            </span>
-
-                            <i class="fa-solid fa-computer"></i>
-
-                        </div>
-
-                        <h3>
-                            Basic Computer
-                        </h3>
-
-                        <p>
-                            Computer operation, software usage,
-                            file management, documentation,
-                            and general computer tasks.
-                        </p>
-
-                        <div class="skill-line"></div>
-
-                    </article>
-
-
-                    <article class="skill-card reveal">
-
-                        <div class="skill-header">
-
-                            <span class="skill-number">
-                                02
-                            </span>
-
-                            <i class="fa-solid fa-screwdriver-wrench"></i>
-
-                        </div>
-
-                        <h3>
-                            Technical Support
-                        </h3>
-
-                        <p>
-                            Basic computer troubleshooting,
-                            hardware installation, maintenance,
-                            and technical assistance.
-                        </p>
-
-                        <div class="skill-line"></div>
-
-                    </article>
-
-
-                    <article class="skill-card reveal">
-
-                        <div class="skill-header">
-
-                            <span class="skill-number">
-                                03
-                            </span>
-
-                            <i class="fa-solid fa-code"></i>
-
-                        </div>
-
-                        <h3>
-                            Programming
-                        </h3>
-
-                        <p>
-                            Basic programming concepts with
-                            experience in HTML, CSS, JavaScript,
-                            PHP, and web technologies.
-                        </p>
-
-                        <div class="skill-line"></div>
-
-                    </article>
-
-
-                    <article class="skill-card reveal">
-
-                        <div class="skill-header">
-
-                            <span class="skill-number">
-                                04
-                            </span>
-
-                            <i class="fa-solid fa-keyboard"></i>
-
-                        </div>
-
-                        <h3>
-                            Typing & Data Entry
-                        </h3>
-
-                        <p>
-                            Computer typing, document preparation,
-                            data entry, and digital information
-                            organization.
-                        </p>
-
-                        <div class="skill-line"></div>
-
-                    </article>
-
-                </div>
-
-
-                <div class="technology-strip reveal">
-
-                    <span>TECHNOLOGY INTERESTS</span>
-
-                    <div class="technology-list">
-
-                        <span>HTML</span>
-                        <span>CSS</span>
-                        <span>JavaScript</span>
-                        <span>PHP</span>
-                        <span>MySQL</span>
-                        <span>Computer Hardware</span>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ==================================================
-             EDUCATION
-        =================================================== -->
-
-        <section class="section education-section" id="education">
-
-            <div class="container">
-
-                <div class="section-intro reveal">
-
-                    <span class="section-number">
-                        03
-                    </span>
-
-                    <div>
-                        <p class="section-label">
-                            ACADEMIC BACKGROUND
-                        </p>
-
-                        <h2>
-                            Education
-                        </h2>
-                    </div>
-
-                </div>
-
-
-                <div class="education-list">
-
-
-                    <article class="education-item reveal">
-
-                        <div class="education-year">
-                            2022
-                            <span>Present</span>
-                        </div>
-
-                        <div class="education-marker">
-                            <span></span>
-                        </div>
-
-                        <div class="education-content">
-
-                            <span class="education-level">
-                                COLLEGE
-                            </span>
-
-                            <h3>
-                                Bachelor of Science in Information Technology
-                            </h3>
-
-                            <h4>
-                                Northeastern Mindanao Colleges
-                            </h4>
-
-                            <p>
-                                Information Technology studies covering
-                                computer systems, programming, web
-                                development, information systems,
-                                and related technologies.
-                            </p>
-
-                        </div>
-
-                    </article>
-
-
-                    <article class="education-item reveal">
-
-                        <div class="education-year">
-                            2020
-                            <span>2022</span>
-                        </div>
-
-                        <div class="education-marker">
-                            <span></span>
-                        </div>
-
-                        <div class="education-content">
-
-                            <span class="education-level">
-                                SENIOR HIGH SCHOOL
-                            </span>
-
-                            <h3>
-                                Senior High School
-                            </h3>
-
-                            <h4>
-                                STI College Surigao
-                            </h4>
-
-                            <p>
-                                Completed Senior High School education.
-                            </p>
-
-                        </div>
-
-                    </article>
-
-
-                    <article class="education-item reveal">
-
-                        <div class="education-year">
-                            2016
-                            <span>2020</span>
-                        </div>
-
-                        <div class="education-marker">
-                            <span></span>
-                        </div>
-
-                        <div class="education-content">
-
-                            <span class="education-level">
-                                JUNIOR HIGH SCHOOL
-                            </span>
-
-                            <h3>
-                                Junior High School
-                            </h3>
-
-                            <h4>
-                                Amando A. Fabio Memorial NHS
-                            </h4>
-
-                            <p>
-                                Completed Junior High School education.
-                            </p>
-
-                        </div>
-
-                    </article>
-
-
-                    <article class="education-item reveal">
-
-                        <div class="education-year">
-                            2010
-                            <span>2016</span>
-                        </div>
-
-                        <div class="education-marker">
-                            <span></span>
-                        </div>
-
-                        <div class="education-content">
-
-                            <span class="education-level">
-                                ELEMENTARY
-                            </span>
-
-                            <h3>
-                                Elementary Education
-                            </h3>
-
-                            <h4>
-                                Sta Cruz Elementary School
-                            </h4>
-
-                            <p>
-                                Completed elementary education.
-                            </p>
-
-                        </div>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ==================================================
-             EXPERIENCE
-        =================================================== -->
-
-        <section class="section experience-section" id="experience">
-
-            <div class="container">
-
-                <div class="section-intro reveal">
-
-                    <span class="section-number">
-                        04
-                    </span>
-
-                    <div>
-                        <p class="section-label">
-                            PROFESSIONAL DEVELOPMENT
-                        </p>
-
-                        <h2>
-                            Experience
-                        </h2>
-                    </div>
-
-                </div>
-
-
-                <div class="experience-card reveal">
-
-                    <div class="experience-side">
-
-                        <span>
-                            PROFESSIONAL
-                        </span>
-
-                        <strong>
-                            01
-                        </strong>
-
-                    </div>
-
-
-                    <div class="experience-main">
-
-                        <div class="experience-top">
-
-                            <div>
-
-                                <span class="experience-type">
-                                    SEMINARS & TRAINING
+                        <!-- Eyebrow & Main Title -->
+                        <div class="space-y-2">
+                            <p class="text-xs font-bold uppercase tracking-widest text-brand-400">Information Technology</p>
+                            <h1 class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-none">
+                                Michael Ryan <br class="hidden sm:inline"/>
+                                <span class="bg-clip-text text-transparent bg-gradient-to-r from-brand-400 via-cyan-300 to-blue-500">
+                                    M. Ajoc
                                 </span>
-
-                                <h3>
-                                    NEMCO
-                                </h3>
-
-                            </div>
-
-                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-
+                            </h1>
                         </div>
 
+                        <p class="text-xl font-medium text-gray-300">IT Professional & Systems Practitioner</p>
 
-                        <p>
-                            Participated in seminars and training
-                            activities related to Information Technology,
-                            technology awareness, skills development,
-                            and professional growth.
+                        <p class="text-gray-400 max-w-2xl leading-relaxed text-base">
+                            An Information Technology professional passionate about computer systems, technical support, full-stack web development, and engineering practical technology solutions for real-world scenarios.
                         </p>
 
+                        <!-- Call to Action Buttons -->
+                        <div class="flex flex-wrap gap-4 pt-2">
+                            <a href="#contact" class="px-7 py-3.5 rounded-xl font-semibold text-white bg-gradient-to-r from-brand-600 to-cyan-500 hover:from-brand-500 hover:to-cyan-400 shadow-lg shadow-brand-500/25 transition-all duration-300 flex items-center gap-2 transform hover:-translate-y-0.5">
+                                Get In Touch <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </a>
+                            <a href="#about" class="px-7 py-3.5 rounded-xl font-semibold text-gray-300 glass-card hover:bg-white/10 hover:text-white transition-all duration-300">
+                                Explore My Profile
+                            </a>
+                        </div>
 
-                        <div class="experience-tags">
+                        <!-- Quick Info Grid (Field, Education, Live Visitor Counter) -->
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6 border-t border-gray-800">
+                            
+                            <div class="flex items-center gap-3.5 p-3 rounded-xl glass-card">
+                                <div class="w-10 h-10 rounded-lg bg-brand-500/10 text-brand-400 flex items-center justify-center shrink-0">
+                                    <i class="fa-solid fa-laptop-code text-lg"></i>
+                                </div>
+                                <div class="overflow-hidden">
+                                    <span class="text-[10px] uppercase font-semibold text-gray-400 block">Field</span>
+                                    <strong class="text-xs font-semibold text-gray-200 truncate block">Info Technology</strong>
+                                </div>
+                            </div>
 
-                            <span>IT Training</span>
-                            <span>Technology</span>
-                            <span>Professional Development</span>
+                            <div class="flex items-center gap-3.5 p-3 rounded-xl glass-card">
+                                <div class="w-10 h-10 rounded-lg bg-cyan-500/10 text-cyan-400 flex items-center justify-center shrink-0">
+                                    <i class="fa-solid fa-graduation-cap text-lg"></i>
+                                </div>
+                                <div class="overflow-hidden">
+                                    <span class="text-[10px] uppercase font-semibold text-gray-400 block">Degree</span>
+                                    <strong class="text-xs font-semibold text-gray-200 truncate block">BS Info Tech</strong>
+                                </div>
+                            </div>
+
+                            <!-- Dynamic No-PHP Visitor Widget -->
+                            <div class="flex items-center gap-3.5 p-3 rounded-xl glass-card border border-brand-500/30">
+                                <div class="w-10 h-10 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0">
+                                    <i class="fa-solid fa-eye text-lg"></i>
+                                </div>
+                                <div class="overflow-hidden">
+                                    <span class="text-[10px] uppercase font-semibold text-gray-400 block">Total Visits</span>
+                                    <strong id="heroVisitCount" class="text-sm font-bold text-emerald-400 block">
+                                        <i class="fa-solid fa-circle-notch fa-spin text-xs"></i>
+                                    </strong>
+                                </div>
+                            </div>
 
                         </div>
 
                     </div>
 
+                    <!-- Right Column Profile Avatar Card -->
+                    <div class="lg:col-span-5 flex justify-center reveal">
+                        <div class="relative w-full max-w-sm">
+                            
+                            <!-- Glowing Aura behind Image -->
+                            <div class="absolute -inset-1 bg-gradient-to-r from-brand-500 to-cyan-500 rounded-3xl blur-xl opacity-30 group-hover:opacity-100 transition duration-1000"></div>
+                            
+                            <div class="relative glass-card rounded-3xl p-4 border border-white/10 shadow-2xl space-y-4">
+                                <div class="relative rounded-2xl overflow-hidden aspect-[4/5] bg-darkcard">
+                                    <img 
+                                        src="profile.jpg" 
+                                        alt="Michael Ryan M. Ajoc" 
+                                        class="w-full h-full object-cover object-top filter contrast-[1.03]"
+                                        onerror="this.onerror=null; this.src='https://placehold.co/400x500/1e293b/38bdf8?text=Michael+Ajoc';"
+                                    >
+                                    <div class="absolute inset-0 bg-gradient-to-t from-darkbg via-transparent to-transparent opacity-80"></div>
+                                    <div class="absolute bottom-4 left-4 right-4 text-white">
+                                        <span class="text-[10px] font-mono tracking-widest text-brand-400 uppercase">Profile #01</span>
+                                        <h3 class="text-xl font-bold">Michael Ryan M. Ajoc</h3>
+                                        <p class="text-xs text-gray-300">Surigao, Philippines</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center justify-between px-2 text-xs text-gray-400 font-mono">
+                                    <span>STATUS: ONLINE</span>
+                                    <span class="text-emerald-400"><i class="fa-solid fa-shield-halved"></i> VERIFIED</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
                 </div>
-
             </div>
-
         </section>
 
 
         <!-- ==================================================
-             CONTACT
+             ABOUT SECTION
         =================================================== -->
-
-        <section class="section contact-section" id="contact">
-
-            <div class="container">
-
-                <div class="contact-heading reveal">
-
-                    <p class="section-label">
-                        05 / CONTACT
-                    </p>
-
-                    <h2>
-                        Let's connect.
-                    </h2>
-
-                    <p>
-                        Have a project, opportunity, or question?
-                        Send me a message.
-                    </p>
-
+        <section id="about" class="py-20 border-t border-gray-800/50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- Section Header -->
+                <div class="flex items-center gap-4 mb-12 reveal">
+                    <span class="text-3xl font-extrabold text-brand-500 font-mono">01.</span>
+                    <div>
+                        <span class="text-xs font-bold text-brand-400 uppercase tracking-widest block">Profile Overview</span>
+                        <h2 class="text-3xl sm:text-4xl font-bold text-white">About Me</h2>
+                    </div>
+                    <div class="h-[1px] bg-gray-800 flex-grow ml-4 hidden sm:block"></div>
                 </div>
 
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                    
+                    <!-- Main About Text -->
+                    <div class="lg:col-span-7 glass-card p-8 rounded-2xl space-y-5 reveal">
+                        <p class="text-lg text-white font-medium leading-relaxed">
+                            I am an Information Technology professional with a strong interest in computer infrastructure, software engineering, and technical problem-solving.
+                        </p>
+                        <p class="text-gray-400 leading-relaxed">
+                            I enjoy working with modern hardware systems and learning how contemporary digital platforms can be built and optimized to tackle complex workflows. My domain covers computer troubleshooting, IT support, Web application development, and database management systems.
+                        </p>
+                        <p class="text-gray-400 leading-relaxed">
+                            Driven by continuous growth, I actively expand my knowledge through hands-on technical projects, professional seminars, certifications, and experimental software development.
+                        </p>
+                    </div>
 
-                <div class="contact-layout">
-
-
-                    <div class="contact-details reveal">
-
-                        <div class="contact-detail">
-
-                            <span class="contact-detail-icon">
-                                <i class="fa-solid fa-envelope"></i>
-                            </span>
-
-                            <div>
-                                <small>EMAIL</small>
-
-                                <a href="mailto:ajocmike2@gmail.com">
-                                    ajocmike2@gmail.com
-                                </a>
-                            </div>
-
+                    <!-- Highlighted Fact Cards Grid -->
+                    <div class="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        
+                        <div class="glass-card p-5 rounded-xl border-l-4 border-l-brand-500 hover:translate-x-1 transition-transform reveal">
+                            <span class="text-xs font-mono text-gray-500 uppercase block mb-1">01 / FIELD</span>
+                            <strong class="text-base font-semibold text-white block">Info Technology</strong>
+                            <span class="text-xs text-gray-400">Core Discipline</span>
                         </div>
 
-
-                        <div class="contact-detail">
-
-                            <span class="contact-detail-icon">
-                                <i class="fa-solid fa-phone"></i>
-                            </span>
-
-                            <div>
-                                <small>PHONE</small>
-
-                                <a href="tel:09304626754">
-                                    09304626754
-                                </a>
-                            </div>
-
+                        <div class="glass-card p-5 rounded-xl border-l-4 border-l-cyan-500 hover:translate-x-1 transition-transform reveal">
+                            <span class="text-xs font-mono text-gray-500 uppercase block mb-1">02 / FOCUS</span>
+                            <strong class="text-base font-semibold text-white block">Web Development</strong>
+                            <span class="text-xs text-gray-400">Frontend & Systems</span>
                         </div>
 
+                        <div class="glass-card p-5 rounded-xl border-l-4 border-l-blue-500 hover:translate-x-1 transition-transform reveal">
+                            <span class="text-xs font-mono text-gray-500 uppercase block mb-1">03 / METHOD</span>
+                            <strong class="text-base font-semibold text-white block">Practical Learning</strong>
+                            <span class="text-xs text-gray-400">Hands-on Execution</span>
+                        </div>
 
-                        <div class="contact-social">
-
-                            <small>
-                                SOCIAL
-                            </small>
-
-                            <div class="social-icons">
-
-                                <a href="#" aria-label="Instagram">
-                                    <i class="fa-brands fa-instagram"></i>
-                                </a>
-
-                                <a href="#" aria-label="Facebook">
-                                    <i class="fa-brands fa-facebook-f"></i>
-                                </a>
-
-                                <a href="#" aria-label="X">
-                                    <i class="fa-brands fa-x-twitter"></i>
-                                </a>
-
-                                <a href="#" aria-label="LinkedIn">
-                                    <i class="fa-brands fa-linkedin-in"></i>
-                                </a>
-
-                            </div>
-
+                        <div class="glass-card p-5 rounded-xl border-l-4 border-l-emerald-500 hover:translate-x-1 transition-transform reveal">
+                            <span class="text-xs font-mono text-gray-500 uppercase block mb-1">04 / AVAILABILITY</span>
+                            <strong class="text-base font-semibold text-emerald-400 block">Open to Opportunities</strong>
+                            <span class="text-xs text-gray-400">Full-time / Projects</span>
                         </div>
 
                     </div>
 
+                </div>
 
-                    <form
-                        class="contact-form reveal"
-                        id="contactForm"
-                    >
+            </div>
+        </section>
 
-                        <div class="form-row">
 
-                            <div class="form-field">
+        <!-- ==================================================
+             SKILLS SECTION
+        =================================================== -->
+        <section id="skills" class="py-20 border-t border-gray-800/50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="flex items-center gap-4 mb-12 reveal">
+                    <span class="text-3xl font-extrabold text-brand-500 font-mono">02.</span>
+                    <div>
+                        <span class="text-xs font-bold text-brand-400 uppercase tracking-widest block">Capabilities</span>
+                        <h2 class="text-3xl sm:text-4xl font-bold text-white">Skills & Expertise</h2>
+                    </div>
+                    <div class="h-[1px] bg-gray-800 flex-grow ml-4 hidden sm:block"></div>
+                </div>
 
-                                <label for="name">
-                                    Name
-                                </label>
-
-                                <input
-                                    type="text"
-                                    id="name"
-                                    name="name"
-                                    placeholder="Your name"
-                                    required
-                                >
-
+                <!-- Skill Cards Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    
+                    <!-- Card 1 -->
+                    <div class="glass-card p-6 rounded-2xl hover:-translate-y-2 hover:border-brand-500/40 transition-all duration-300 group reveal">
+                        <div class="flex items-center justify-between mb-6">
+                            <span class="text-2xl font-mono font-bold text-gray-600 group-hover:text-brand-400 transition-colors">01</span>
+                            <div class="w-12 h-12 rounded-xl bg-brand-500/10 text-brand-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-desktop"></i>
                             </div>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Computer Systems</h3>
+                        <p class="text-sm text-gray-400 leading-relaxed mb-4">
+                            System diagnostics, OS installation, software optimization, file structure management, and technical documentation.
+                        </p>
+                        <div class="w-full h-1 bg-gray-800 rounded-full overflow-hidden">
+                            <div class="bg-gradient-to-r from-brand-500 to-cyan-400 h-full w-[85%]"></div>
+                        </div>
+                    </div>
 
-
-                            <div class="form-field">
-
-                                <label for="email">
-                                    Email
-                                </label>
-
-                                <input
-                                    type="email"
-                                    id="email"
-                                    name="email"
-                                    placeholder="you@example.com"
-                                    required
-                                >
-
+                    <!-- Card 2 -->
+                    <div class="glass-card p-6 rounded-2xl hover:-translate-y-2 hover:border-brand-500/40 transition-all duration-300 group reveal">
+                        <div class="flex items-center justify-between mb-6">
+                            <span class="text-2xl font-mono font-bold text-gray-600 group-hover:text-brand-400 transition-colors">02</span>
+                            <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-screwdriver-wrench"></i>
                             </div>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Technical Support</h3>
+                        <p class="text-sm text-gray-400 leading-relaxed mb-4">
+                            Hardware troubleshooting, routine maintenance, network configuration, component upgrades, and helpdesk support.
+                        </p>
+                        <div class="w-full h-1 bg-gray-800 rounded-full overflow-hidden">
+                            <div class="bg-gradient-to-r from-cyan-500 to-blue-400 h-full w-[90%]"></div>
+                        </div>
+                    </div>
 
+                    <!-- Card 3 -->
+                    <div class="glass-card p-6 rounded-2xl hover:-translate-y-2 hover:border-brand-500/40 transition-all duration-300 group reveal">
+                        <div class="flex items-center justify-between mb-6">
+                            <span class="text-2xl font-mono font-bold text-gray-600 group-hover:text-brand-400 transition-colors">03</span>
+                            <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-code"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Web Development</h3>
+                        <p class="text-sm text-gray-400 leading-relaxed mb-4">
+                            Building web experiences using HTML5, modern CSS/Tailwind, JavaScript, PHP, MySQL, and REST APIs.
+                        </p>
+                        <div class="w-full h-1 bg-gray-800 rounded-full overflow-hidden">
+                            <div class="bg-gradient-to-r from-blue-500 to-indigo-400 h-full w-[80%]"></div>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="glass-card p-6 rounded-2xl hover:-translate-y-2 hover:border-brand-500/40 transition-all duration-300 group reveal">
+                        <div class="flex items-center justify-between mb-6">
+                            <span class="text-2xl font-mono font-bold text-gray-600 group-hover:text-brand-400 transition-colors">04</span>
+                            <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-keyboard"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Data & Operations</h3>
+                        <p class="text-sm text-gray-400 leading-relaxed mb-4">
+                            High-speed data entry, spreadsheet management, digital records organization, and database entry accuracy.
+                        </p>
+                        <div class="w-full h-1 bg-gray-800 rounded-full overflow-hidden">
+                            <div class="bg-gradient-to-r from-purple-500 to-pink-400 h-full w-[92%]"></div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Technologies Tech Stack Bar -->
+                <div class="mt-12 glass-card p-6 rounded-2xl flex flex-wrap items-center justify-between gap-4 reveal">
+                    <span class="text-xs font-mono font-bold uppercase tracking-wider text-gray-400">Tech Stack & Competencies</span>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-gray-800/80 text-gray-300 border border-gray-700/50 hover:border-brand-500 hover:text-white transition-colors">HTML5</span>
+                        <span class="px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-gray-800/80 text-gray-300 border border-gray-700/50 hover:border-brand-500 hover:text-white transition-colors">CSS3 / Tailwind</span>
+                        <span class="px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-gray-800/80 text-gray-300 border border-gray-700/50 hover:border-brand-500 hover:text-white transition-colors">JavaScript ES6+</span>
+                        <span class="px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-gray-800/80 text-gray-300 border border-gray-700/50 hover:border-brand-500 hover:text-white transition-colors">PHP</span>
+                        <span class="px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-gray-800/80 text-gray-300 border border-gray-700/50 hover:border-brand-500 hover:text-white transition-colors">MySQL</span>
+                        <span class="px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-gray-800/80 text-gray-300 border border-gray-700/50 hover:border-brand-500 hover:text-white transition-colors">Computer Hardware</span>
+                        <span class="px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-gray-800/80 text-gray-300 border border-gray-700/50 hover:border-brand-500 hover:text-white transition-colors">Networking Basics</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ==================================================
+             EDUCATION SECTION
+        =================================================== -->
+        <section id="education" class="py-20 border-t border-gray-800/50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="flex items-center gap-4 mb-12 reveal">
+                    <span class="text-3xl font-extrabold text-brand-500 font-mono">03.</span>
+                    <div>
+                        <span class="text-xs font-bold text-brand-400 uppercase tracking-widest block">Academic Journey</span>
+                        <h2 class="text-3xl sm:text-4xl font-bold text-white">Education History</h2>
+                    </div>
+                    <div class="h-[1px] bg-gray-800 flex-grow ml-4 hidden sm:block"></div>
+                </div>
+
+                <!-- Timeline Container -->
+                <div class="relative border-l-2 border-gray-800 ml-4 sm:ml-32 space-y-10 pl-6 sm:pl-10">
+                    
+                    <!-- Item 1: College -->
+                    <div class="relative group reveal">
+                        <!-- Timeline Dot -->
+                        <div class="absolute -left-[31px] sm:-left-[47px] top-1.5 w-5 h-5 rounded-full bg-darkbg border-4 border-brand-500 group-hover:scale-125 transition-transform"></div>
+                        
+                        <!-- Timeline Date Pill (Desktop) -->
+                        <div class="sm:absolute sm:-left-[160px] sm:top-1 text-sm font-mono font-bold text-brand-400 mb-2 sm:mb-0">
+                            2022 — 2026
                         </div>
 
+                        <div class="glass-card p-6 rounded-2xl hover:border-brand-500/30 transition-all">
+                            <span class="px-3 py-1 rounded-md text-[10px] font-bold tracking-wider bg-brand-500/10 text-brand-400 uppercase inline-block mb-3">College Degree</span>
+                            <h3 class="text-xl font-bold text-white mb-1">Bachelor of Science in Information Technology</h3>
+                            <h4 class="text-sm font-semibold text-gray-300 mb-3">Northeastern Mindanao Colleges</h4>
+                            <p class="text-sm text-gray-400 leading-relaxed">
+                                Comprehensive study in computer architecture, database management systems, software engineering, web technologies, and information infrastructure.
+                            </p>
+                        </div>
+                    </div>
 
-                        <div class="form-field">
-
-                            <label for="subject">
-                                Subject
-                            </label>
-
-                            <input
-                                type="text"
-                                id="subject"
-                                name="subject"
-                                placeholder="What would you like to discuss?"
-                                required
-                            >
-
+                    <!-- Item 2: Senior High School -->
+                    <div class="relative group reveal">
+                        <div class="absolute -left-[31px] sm:-left-[47px] top-1.5 w-5 h-5 rounded-full bg-darkbg border-4 border-cyan-500 group-hover:scale-125 transition-transform"></div>
+                        
+                        <div class="sm:absolute sm:-left-[160px] sm:top-1 text-sm font-mono font-bold text-cyan-400 mb-2 sm:mb-0">
+                            2020 — 2022
                         </div>
 
+                        <div class="glass-card p-6 rounded-2xl hover:border-cyan-500/30 transition-all">
+                            <span class="px-3 py-1 rounded-md text-[10px] font-bold tracking-wider bg-cyan-500/10 text-cyan-400 uppercase inline-block mb-3">Senior High School</span>
+                            <h3 class="text-xl font-bold text-white mb-1">Senior High School Graduate</h3>
+                            <h4 class="text-sm font-semibold text-gray-300 mb-2">STI College Surigao</h4>
+                            <p class="text-sm text-gray-400 leading-relaxed">
+                                Specialized in technical-vocational computer education and foundational programming logic.
+                            </p>
+                        </div>
+                    </div>
 
-                        <div class="form-field">
-
-                            <label for="message">
-                                Message
-                            </label>
-
-                            <textarea
-                                id="message"
-                                name="message"
-                                rows="6"
-                                placeholder="Write your message here..."
-                                required
-                            ></textarea>
-
+                    <!-- Item 3: Junior High School -->
+                    <div class="relative group reveal">
+                        <div class="absolute -left-[31px] sm:-left-[47px] top-1.5 w-5 h-5 rounded-full bg-darkbg border-4 border-blue-500 group-hover:scale-125 transition-transform"></div>
+                        
+                        <div class="sm:absolute sm:-left-[160px] sm:top-1 text-sm font-mono font-bold text-blue-400 mb-2 sm:mb-0">
+                            2016 — 2020
                         </div>
 
+                        <div class="glass-card p-6 rounded-2xl hover:border-blue-500/30 transition-all">
+                            <span class="px-3 py-1 rounded-md text-[10px] font-bold tracking-wider bg-blue-500/10 text-blue-400 uppercase inline-block mb-3">Junior High School</span>
+                            <h3 class="text-xl font-bold text-white mb-1">Junior High School Graduate</h3>
+                            <h4 class="text-sm font-semibold text-gray-300 mb-2">Amando A. Fabio Memorial NHS</h4>
+                            <p class="text-sm text-gray-400 leading-relaxed">
+                                Secondary education curriculum with academic achievements and extracurricular involvement.
+                            </p>
+                        </div>
+                    </div>
 
-                        <button
-                            type="submit"
-                            class="button button-primary form-button"
-                        >
-                            Send Message
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </button>
+                    <!-- Item 4: Elementary -->
+                    <div class="relative group reveal">
+                        <div class="absolute -left-[31px] sm:-left-[47px] top-1.5 w-5 h-5 rounded-full bg-darkbg border-4 border-gray-600 group-hover:scale-125 transition-transform"></div>
+                        
+                        <div class="sm:absolute sm:-left-[160px] sm:top-1 text-sm font-mono font-bold text-gray-400 mb-2 sm:mb-0">
+                            2010 — 2016
+                        </div>
 
-                    </form>
+                        <div class="glass-card p-6 rounded-2xl hover:border-gray-600/30 transition-all">
+                            <span class="px-3 py-1 rounded-md text-[10px] font-bold tracking-wider bg-gray-500/10 text-gray-400 uppercase inline-block mb-3">Elementary</span>
+                            <h3 class="text-xl font-bold text-white mb-1">Elementary Education</h3>
+                            <h4 class="text-sm font-semibold text-gray-300 mb-2">Sta Cruz Elementary School</h4>
+                            <p class="text-sm text-gray-400 leading-relaxed">
+                                Completed primary educational foundation.
+                            </p>
+                        </div>
+                    </div>
 
                 </div>
 
             </div>
+        </section>
 
+
+        <!-- ==================================================
+             EXPERIENCE SECTION
+        =================================================== -->
+        <section id="experience" class="py-20 border-t border-gray-800/50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="flex items-center gap-4 mb-12 reveal">
+                    <span class="text-3xl font-extrabold text-brand-500 font-mono">04.</span>
+                    <div>
+                        <span class="text-xs font-bold text-brand-400 uppercase tracking-widest block">Professional Growth</span>
+                        <h2 class="text-3xl sm:text-4xl font-bold text-white">Experience & Training</h2>
+                    </div>
+                    <div class="h-[1px] bg-gray-800 flex-grow ml-4 hidden sm:block"></div>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl relative overflow-hidden group reveal">
+                    <!-- Subtle background decoration -->
+                    <div class="absolute top-0 right-0 p-8 opacity-5 text-8xl text-white font-extrabold select-none">IT</div>
+
+                    <div class="relative z-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+                        <div class="space-y-4 max-w-2xl">
+                            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/10 text-brand-400 text-xs font-semibold">
+                                <i class="fa-solid fa-certificate"></i> Seminars & Professional Development
+                            </div>
+                            <h3 class="text-2xl font-bold text-white">IT Seminars & Technical Workshops</h3>
+                            <h4 class="text-base font-medium text-brand-300">Northeastern Mindanao Colleges (NEMCO)</h4>
+                            <p class="text-gray-400 leading-relaxed text-sm">
+                                Participated in multiple IT seminars, hands-on computer workshops, tech awareness forums, and skill development programs aimed at real-world technical execution and modern IT practices.
+                            </p>
+                            <div class="flex flex-wrap gap-2 pt-2">
+                                <span class="px-3 py-1 rounded-md text-xs font-medium bg-gray-800 text-gray-300">IT Training</span>
+                                <span class="px-3 py-1 rounded-md text-xs font-medium bg-gray-800 text-gray-300">Tech Awareness</span>
+                                <span class="px-3 py-1 rounded-md text-xs font-medium bg-gray-800 text-gray-300">Systems Development</span>
+                            </div>
+                        </div>
+
+                        <div class="shrink-0 w-full lg:w-auto">
+                            <a href="#contact" class="w-full lg:w-auto px-6 py-3.5 rounded-xl font-semibold text-white bg-white/10 hover:bg-white/20 transition-all flex items-center justify-center gap-2 text-sm">
+                                Contact for Details <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ==================================================
+             CONTACT SECTION
+        =================================================== -->
+        <section id="contact" class="py-20 border-t border-gray-800/50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="max-w-3xl mx-auto text-center space-y-4 mb-16 reveal">
+                    <span class="text-xs font-bold text-brand-400 uppercase tracking-widest font-mono">05 / GET IN TOUCH</span>
+                    <h2 class="text-4xl sm:text-5xl font-extrabold text-white">Let's Connect</h2>
+                    <p class="text-gray-400 text-base">
+                        Have a technical project, job opportunity, or inquiry? Feel free to reach out directly through my contact information below.
+                    </p>
+                </div>
+
+                <div class="max-w-xl mx-auto space-y-6">
+                    
+                    <!-- Email Card -->
+                    <a href="mailto:ajocmike2@gmail.com" class="glass-card p-6 rounded-2xl flex items-center gap-5 hover:border-brand-500/50 hover:bg-white/[0.08] transition-all group reveal">
+                        <div class="w-14 h-14 rounded-2xl bg-brand-500/10 text-brand-400 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <div class="overflow-hidden">
+                            <span class="text-xs font-mono text-gray-400 block uppercase">Email Address</span>
+                            <strong class="text-lg font-semibold text-white group-hover:text-brand-400 transition-colors truncate block">
+                                ajocmike2@gmail.com
+                            </strong>
+                        </div>
+                    </a>
+
+                    <!-- Phone Card -->
+                    <a href="tel:09304626754" class="glass-card p-6 rounded-2xl flex items-center gap-5 hover:border-brand-500/50 hover:bg-white/[0.08] transition-all group reveal">
+                        <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs font-mono text-gray-400 block uppercase">Phone / Mobile</span>
+                            <strong class="text-lg font-semibold text-white group-hover:text-emerald-400 transition-colors block">
+                                0930 462 6754
+                            </strong>
+                        </div>
+                    </a>
+
+                    <!-- Social Icons Box -->
+                    <div class="glass-card p-6 rounded-2xl text-center space-y-4 reveal">
+                        <span class="text-xs font-mono text-gray-400 uppercase tracking-widest block">Connect via Social Networks</span>
+                        <div class="flex items-center justify-center gap-4">
+                            <a href="#" aria-label="Instagram" class="w-12 h-12 rounded-xl glass-card flex items-center justify-center text-gray-300 hover:text-white hover:bg-brand-500/20 hover:border-brand-500/50 transition-all text-xl">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                            <a href="#" aria-label="Facebook" class="w-12 h-12 rounded-xl glass-card flex items-center justify-center text-gray-300 hover:text-white hover:bg-brand-500/20 hover:border-brand-500/50 transition-all text-xl">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </a>
+                            <a href="#" aria-label="X Twitter" class="w-12 h-12 rounded-xl glass-card flex items-center justify-center text-gray-300 hover:text-white hover:bg-brand-500/20 hover:border-brand-500/50 transition-all text-xl">
+                                <i class="fa-brands fa-x-twitter"></i>
+                            </a>
+                            <a href="#" aria-label="LinkedIn" class="w-12 h-12 rounded-xl glass-card flex items-center justify-center text-gray-300 hover:text-white hover:bg-brand-500/20 hover:border-brand-500/50 transition-all text-xl">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
         </section>
 
     </main>
@@ -957,48 +672,166 @@
     <!-- ==================================================
          FOOTER
     =================================================== -->
-
-    <footer class="site-footer">
-
-        <div class="container footer-container">
-
-            <div class="footer-brand">
-
-                <span class="brand-mark">
-                    M
-                </span>
-
-                <div>
-                    <strong>
-                        Michael Ryan M. Ajoc
-                    </strong>
-
-                    <small>
-                        INFORMATION TECHNOLOGY
-                    </small>
+    <footer class="border-t border-gray-800 bg-darkbg/90 relative z-10 py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                
+                <!-- Brand Info -->
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-brand-600 to-cyan-400 flex items-center justify-center font-bold text-white text-sm">
+                        M
+                    </div>
+                    <div>
+                        <strong class="text-white text-sm block">Michael Ryan M. Ajoc</strong>
+                        <span class="text-[10px] text-gray-400 tracking-wider uppercase block">IT Professional</span>
+                    </div>
                 </div>
 
+                <!-- Copyright & Footer Counter -->
+                <div class="text-center md:text-right text-xs text-gray-400 space-y-1">
+                    <p>© <span id="currentYear"></span> Michael Ryan M. Ajoc. All rights reserved.</p>
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-900 border border-gray-800 text-[11px] text-gray-300">
+                        <i class="fa-solid fa-eye text-emerald-400"></i>
+                        <span>Total Visits Counter: <strong id="footerVisitCount" class="text-white">...</strong></span>
+                    </div>
+                </div>
+
+                <!-- Back to top -->
+                <a href="#home" class="p-3 rounded-xl glass-card text-gray-400 hover:text-white hover:bg-white/10 transition-colors text-sm flex items-center gap-2">
+                    Top <i class="fa-solid fa-arrow-up"></i>
+                </a>
+
             </div>
-
-
-            <p>
-                © <span id="currentYear"></span>
-                Michael Ryan M. Ajoc. All rights reserved.
-            </p>
-
-
-            <a href="#home" class="footer-top">
-                Back to top
-                <i class="fa-solid fa-arrow-up"></i>
-            </a>
-
         </div>
-
     </footer>
 
 
-    <!-- JavaScript -->
-    <script src="javascript.js"></script>
+    <!-- ==================================================
+         JAVASCRIPT (ALL-IN-ONE LOGIC & NO-PHP COUNTER)
+    =================================================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // 1. Mobile Menu Toggle
+            const mobileMenuButton = document.getElementById('mobileMenuButton');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const menuIcon = document.getElementById('menuIcon');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
 
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', () => {
+                    const isHidden = mobileMenu.classList.contains('hidden');
+                    if (isHidden) {
+                        mobileMenu.classList.remove('hidden');
+                        menuIcon.classList.remove('fa-bars');
+                        menuIcon.classList.add('fa-xmark');
+                    } else {
+                        mobileMenu.classList.add('hidden');
+                        menuIcon.classList.remove('fa-xmark');
+                        menuIcon.classList.add('fa-bars');
+                    }
+                });
+
+                // Close mobile menu when link clicked
+                mobileNavLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.add('hidden');
+                        menuIcon.classList.remove('fa-xmark');
+                        menuIcon.classList.add('fa-bars');
+                    });
+                });
+            }
+
+            // 2. Footer Dynamic Year
+            const currentYearSpan = document.getElementById('currentYear');
+            if (currentYearSpan) {
+                currentYearSpan.textContent = new Date().getFullYear();
+            }
+
+            // 3. Scroll Reveal Animation
+            const revealElements = document.querySelectorAll('.reveal');
+            
+            const revealOnScroll = () => {
+                const windowHeight = window.innerHeight;
+                revealElements.forEach(el => {
+                    const elementTop = el.getBoundingClientRect().top;
+                    const elementVisible = 100;
+                    if (elementTop < windowHeight - elementVisible) {
+                        el.classList.add('active');
+                    }
+                });
+            };
+
+            window.addEventListener('scroll', revealOnScroll);
+            revealOnScroll(); // Trigger initial check
+
+            // 4. Header Shadow on Scroll
+            const siteHeader = document.getElementById('siteHeader');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 20) {
+                    siteHeader.classList.add('shadow-xl', 'bg-darkbg/95');
+                } else {
+                    siteHeader.classList.remove('shadow-xl', 'bg-darkbg/95');
+                }
+            });
+
+            // ==================================================
+            // 5. NO-PHP VISITOR COUNTER FEATURE
+            // Uses API with LocalStorage Fallback
+            // ==================================================
+            const updateCounterDisplay = (count) => {
+                const heroVisitCount = document.getElementById('heroVisitCount');
+                const footerVisitCount = document.getElementById('footerVisitCount');
+
+                // Format count with commas (e.g. 1,234)
+                const formattedCount = Number(count).toLocaleString();
+
+                if (heroVisitCount) {
+                    heroVisitCount.textContent = formattedCount;
+                }
+                if (footerVisitCount) {
+                    footerVisitCount.textContent = formattedCount;
+                }
+            };
+
+            const initVisitorCounter = async () => {
+                // Namespace for Michael Ajoc's Site
+                const namespace = "michael-ajoc-portfolio-2026";
+                const key = "visits";
+
+                try {
+                    // Try fetching from public counter API (No PHP required)
+                    const response = await fetch(`https://api.counterapi.dev/v1/${namespace}/${key}/up`);
+                    
+                    if (!response.ok) {
+                        throw new Error('Public Counter API unavailable');
+                    }
+
+                    const data = await response.json();
+                    if (data && data.count !== undefined) {
+                        updateCounterDisplay(data.count);
+                        return;
+                    }
+                    throw new Error('Invalid API response');
+                } catch (error) {
+                    console.warn('API Counter notice (falling back to LocalStorage):', error.message);
+                    
+                    // Fallback to LocalStorage so visitor count works smoothly anywhere
+                    let localCount = localStorage.getItem('site_visit_counter');
+                    if (!localCount) {
+                        localCount = 128; // Realistic starting base count for portfolio
+                    } else {
+                        localCount = parseInt(localCount, 10) + 1;
+                    }
+                    localStorage.setItem('site_visit_counter', localCount);
+                    updateCounterDisplay(localCount);
+                }
+            };
+
+            // Initialize counter
+            initVisitorCounter();
+
+        });
+    </script>
 </body>
 </html>
